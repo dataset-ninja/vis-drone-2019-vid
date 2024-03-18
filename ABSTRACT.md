@@ -1,5 +1,35 @@
+The authors have made available the **VisDrone-VID dataset**, a comprehensive collection of drone-captured images tailored for object detection tasks. Spanning various urban and suburban locales across 14 different cities in China, from north to south, the VisDrone dataset stands as the most extensive of its kind ever published. This dataset facilitates thorough evaluation and exploration of visual analysis algorithms specifically designed for drone platforms.
 
-Sample image template:
-<img src="https://github.com/dataset-ninja/gland-segmentation/assets/78355358/f158d0dd-71d5-41a2-aba5-4a5f57d54c35" alt="image" width="800">
+## Motivation
 
-<span style="font-size: smaller; font-style: italic;">Image description.</span>
+In recent years, drones (or UAVs) equipped with cameras have garnered significant attention. It is projected that the global commercial drone market size will reach $501.4 billion by 2028, with a compound annual growth rate of 57.5% from 2021 to 2028. Utilizing embedded devices, drones have the capability to analyze captured data and give rise to a multitude of new application scenarios:
+* **Agriculture.** Drones can provide valuable insights to help farmers or ranchers optimize agriculture operations, monitor crop growth and keep herds safe, etc.
+* **Aerial photography.** Drones are used to extract aerial photography images instead of expensive cranes and helicopters.
+* **Shipping and delivery.** Drones can efficiently send packages such as medical supplies, food, or other goods to the designated places.
+* **Security and surveillance.** Drones can provide realtime visibility into security threats and emergency situations by monitoring large regions. 
+* **Search and rescue.** Drones are useful to help search missing persons, fugitives, or rescue survivors and drop supplies in difficult terrains and harsh conditions.
+
+As a result, there is a growing demand for the automatic interpretation of visual data gathered from drones, drawing computer vision technology closer to these aerial platforms. Object detection and object tracking, being two fundamental challenges in computer vision, are currently undergoing extensive research and development. However, despite significant advancements in various application domains such as internet and security surveillance, existing methods are often suboptimal when applied to sequences or images captured by drones. Notably, drone-captured video sequences present several unique challenges not typically encountered in traditional computer vision datasets:
+* **Viewpoint variations:** comparing to surveillance cameras with fixed viewpoints, drone-equipped cameras monitor the objects in arbitrary viewpoints.
+* **Scale variations**: drone-equipped cameras monitor the objects at different altitudes, resulting in large variations of scales of objects.
+* **Motion blur:** videos are generally recorded by the droneequipped cameras in the moving process, bringing in considerable motion blurs of the recorded videos.
+
+Hence, there is a critical need to advance the development and assessment of vision algorithms tailored for visual data captured by drones. However, progress toward this objective is significantly hindered by the absence of publicly available large-scale benchmarks or datasets. While some recent endeavors have been dedicated to constructing datasets captured by drones, with a particular focus on object detection or tracking, these datasets remain constrained in size and scope due to the challenges associated with data collection and annotation. Consequently, thorough evaluations of existing or newly developed algorithms remain an ongoing challenge. There is a pressing need for a more inclusive and comprehensive benchmark to further advance research in this field.
+
+## Dataset description
+
+A foundational element crucial for the effective evaluation of algorithms is the availability of a comprehensive dataset. In this regard, the authors of VisDrone have meticulously curated the most extensive dataset to date, aiming to propel research in object detection and tracking on drones forward. This dataset comprises 263 video clips encompassing 179,264 frames, along with an additional 10,209 static images. These videos and images were captured using various drone platforms, including the DJI Mavic and Phantom series (3, 3A, 3SE, 3P, 4, 4A, 4P), across a diverse range of scenarios spanning 14 different cities in China. These cities include Tianjin, Hongkong, Daqing, Ganzhou, Guangzhou, Jincang, Liuzhou, Nanjing, Shaoxing, Shenyang, Nanyang, Zhangjiakou, Suzhou, and Xuzhou. The dataset encompasses a wide array of weather and lighting conditions, thus representing a myriad of scenarios encountered in daily life. The video clips boast a maximal resolution of 3840 × 2160, while the static images reach a resolution of 2000 × 1500, ensuring high-quality data for research purposes. The VisDrone benchmark focuses on the following four tasks: DET, VID, SOT and MOT.
+
+<img src="https://github.com/dataset-ninja/vis-drone-det/assets/120389559/187d6fdc-a506-4541-b307-0e2145cef5a8" alt="image" width="1000">
+
+<span style="font-size: smaller; font-style: italic;">Annotated example images in the proposed datasets. The dashed bounding box indicates the object is occluded. Different colors indicate different classes of objects. For better visualization, only a few attributes are displayed.</span>
+
+The Video Instance Detection (VID) track aims to identify instances of objects from a predefined set of categories within video sequences. Essentially, given a series of video clips, the algorithms are tasked with providing bounding boxes for each object instance present in each frame of the video, along with associated confidence scores. In contrast to the Detection (DET) track, which focuses on object detection within individual images, the VID track addresses the detection of object instances across video clips. This inherently involves maintaining temporal consistency across consecutive frames. The track encompasses five categories of objects: *pedestrian*, *car*, *van*, *bus*, and *truck*. To evaluate the performance of video object detection algorithms, the same metrics utilized in the DET track are employed.
+
+The authors present a total of 96 challenging video clips in the VID track. These include 56 clips designated for training, comprising 24,198 frames in total, along with 7 clips for validation spanning 2,846 frames. Additionally, there are 16 clips allocated for challenge testing, encompassing 6,322 frames, and 17 clips for dev testing, covering 6,635 frames in total. Notably, the dataset grapples with a significant class imbalance issue, posing a challenge to algorithm performance. For instance, within the training set, the number of car trajectories exceeds that of bus trajectories by over 50 times. Moreover, object trajectories exhibit considerable variation in length, with maximal and minimal trajectory lengths ranging from 1 to 1,255, necessitating tracking algorithms to excel in both short-term and long-term scenarios. Similar to the DET track, the authors furnish annotations detailing occlusion and truncation ratios for each object, along with delineating ignored regions within each video frame.
+
+<img src="https://github.com/dataset-ninja/vis-drone-vid/assets/120389559/1144f0fa-05f7-4369-a6b2-e2c038118be1" alt="image" width="1000">
+
+<span style="font-size: smaller; font-style: italic;">The number of object trajectories in different categories in the subsets of the VID and MOT tracks.</span>
+
+
