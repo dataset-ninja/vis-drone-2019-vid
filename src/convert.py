@@ -29,7 +29,8 @@ def convert_and_upload_supervisely_project(
     images_ext = ".jpg"
     anns_ext = ".txt"
 
-    ds_name_to_data = {"train": train_path, "val": val_path, "test": test_dev_path}
+    # ds_name_to_data = {"train": train_path, "val": val_path, "test": test_dev_path}
+    ds_name_to_data = {"test": test_dev_path}
 
     def create_ann(image_path):
         labels = []
@@ -172,7 +173,7 @@ def convert_and_upload_supervisely_project(
         seq_value = subfolder[3:-2]
         seq = sly.Tag(seq_meta, value=seq_value)
 
-        curr_data_path = os.path.join(data_path, subfolder)
+        curr_data_path = os.path.join(test_challenge_path, subfolder)
 
         curr_ann_path = curr_data_path.replace("sequences", "annotations") + ".txt"
         images_names = os.listdir(curr_data_path)
