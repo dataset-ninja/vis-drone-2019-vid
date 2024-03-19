@@ -28,7 +28,7 @@ The Video Instance Detection (VID) track aims to identify instances of objects f
 
 The authors present a total of 96 challenging video clips in the VID track. These include 56 clips designated for training, comprising 24,198 frames in total, along with 7 clips for validation spanning 2,846 frames. Additionally, there are 16 clips allocated for challenge testing, encompassing 6,322 frames, and 17 clips for dev testing, covering 6,635 frames in total. Notably, the dataset grapples with a significant class imbalance issue, posing a challenge to algorithm performance. For instance, within the training set, the number of car trajectories exceeds that of bus trajectories by over 50 times. Moreover, object trajectories exhibit considerable variation in length, with maximal and minimal trajectory lengths ranging from 1 to 1,255, necessitating tracking algorithms to excel in both short-term and long-term scenarios. Similar to the DET track, the authors furnish annotations detailing occlusion and truncation ratios for each object, along with delineating ignored regions within each video frame.
 
-<img src="https://github.com/dataset-ninja/vis-drone-vid/assets/120389559/1144f0fa-05f7-4369-a6b2-e2c038118be1" alt="image" width="1000">
+<img src="https://github.com/dataset-ninja/vis-drone-vid/assets/120389559/1144f0fa-05f7-4369-a6b2-e2c038118be1" alt="image" width="600">
 
 <span style="font-size: smaller; font-style: italic;">The number of object trajectories in different categories in the subsets of the VID and MOT tracks.</span>
 
