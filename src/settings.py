@@ -71,9 +71,7 @@ CLASS2COLOR: Optional[Dict[str, List[str]] or Literal["predefined"]] = {
 # Use dict key to specify name for a button
 PAPER: Optional[Union[str, List[str], Dict[str, str]]] = "https://arxiv.org/pdf/2001.06303"
 BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = None
-REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = {
-    "GitHub": "some_link_to_repo_if_exists"
-}
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = None
 
 CITATION_URL: Optional[str] = None
 AUTHORS: Optional[List[str]] = [
@@ -114,7 +112,7 @@ ORGANIZATION_URL: Optional[Union[str, List[str]]] = [
 # Set '__PRETEXT__' or '__POSTTEXT__' as a key with string value to add custom text. e.g. SLYTAGSPLIT = {'__POSTTEXT__':'some text}
 SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = {
     "occlusions": ["no occlusion", "partial occlusion", "heavy occlusion"],
-    "truncations": ["partial occlusion", "no occlusion"],
+    "truncations": ["no truncation", "partial truncation"],
     "__POSTTEXT__": "Additionally, every image marked with ***sequence*** and ***target id*** tags, test images marked with ***challenge*** or ***dev*** tag",
 }
 TAGS: Optional[
