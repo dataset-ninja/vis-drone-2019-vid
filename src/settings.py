@@ -13,23 +13,23 @@ from dataset_tools.templates import (
 ##################################
 # * Before uploading to instance #
 ##################################
-PROJECT_NAME: str = "VisDrone-VID"
-PROJECT_NAME_FULL: str = "VisDrone-VID dataset"
+PROJECT_NAME: str = "VisDrone2019-VID"
+PROJECT_NAME_FULL: str = "VisDrone2019-VID Dataset"
 HIDE_DATASET = True  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = License.Unknown()
-APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.SearchAndRescue()]
-CATEGORY: Category = Category.Safety(extra=[Category.Aerial(), Category.Drones()])
+LICENSE: License = License.PubliclyAvailable()
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [Domain.Surveillance()]
+CATEGORY: Category = Category.Surveillance()
 
-CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
+CV_TASKS: List[CVTask] = [CVTask.ObjectDetection(), CVTask.Identification()]
 ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.ObjectDetection()]
 
-RELEASE_DATE: Optional[str] = "2021-10-04"  # e.g. "YYYY-MM-DD"
+RELEASE_DATE: Optional[str] = None  # e.g. "YYYY-MM-DD"
 if RELEASE_DATE is None:
-    RELEASE_YEAR: int = None
+    RELEASE_YEAR: int = 2019
 
 HOMEPAGE_URL: str = "https://github.com/VisDrone/VisDrone-Dataset"
 # e.g. "https://some.com/dataset/homepage"
@@ -37,7 +37,7 @@ HOMEPAGE_URL: str = "https://github.com/VisDrone/VisDrone-Dataset"
 PREVIEW_IMAGE_ID: int = 16118752
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
-GITHUB_URL: str = "https://github.com/dataset-ninja/vis-drone-vid"
+GITHUB_URL: str = "https://github.com/dataset-ninja/vis-drone-2019-vid"
 # URL to GitHub repo on dataset ninja (e.g. "https://github.com/dataset-ninja/some-dataset")
 
 ##################################
@@ -128,7 +128,7 @@ TAGS: Optional[
             "egocentric",
         ]
     ]
-] = None
+] = ["single-object-tracking", "multi-object-tracking", "crowd-counting"]
 
 
 SECTION_EXPLORE_CUSTOM_DATASETS: Optional[List[str]] = None

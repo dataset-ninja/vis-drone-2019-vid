@@ -36,14 +36,6 @@ def convert_and_upload_supervisely_project(
         labels = []
         tags = [seq]
 
-        if ds_name == "test":
-            if image_path.split("/")[-3] == "test-dev":
-                test_tag = sly.Tag(dev)
-                tags.append(test_tag)
-            else:
-                test_tag = sly.Tag(challenge)
-                tags.append(test_tag)
-
         image_np = sly.imaging.image.read(image_path)[:, :, 0]
         img_height = image_np.shape[0]
         img_wight = image_np.shape[1]
@@ -92,8 +84,6 @@ def convert_and_upload_supervisely_project(
         11: sly.ObjClass("other", sly.Rectangle),
     }
 
-    challenge = sly.TagMeta("challenge", sly.TagValueType.NONE)
-    dev = sly.TagMeta("dev", sly.TagValueType.NONE)
     seq_meta = sly.TagMeta("sequence", sly.TagValueType.ANY_STRING)
     target_meta = sly.TagMeta("target id", sly.TagValueType.ANY_NUMBER)
     no_occlusion = sly.TagMeta("no occlusion", sly.TagValueType.NONE)
@@ -111,8 +101,6 @@ def convert_and_upload_supervisely_project(
     meta = sly.ProjectMeta(
         obj_classes=list(idx_to_class.values()),
         tag_metas=[
-            challenge,
-            dev,
             no_occlusion,
             partial_occlusion,
             heavy_occlusion,
@@ -169,6 +157,8 @@ def convert_and_upload_supervisely_project(
 
                 progress.iters_done_report(len(images_names_batch))
 
+    ds_name = "test challenge"
+    dataset = api.dataset.create(project.id, get_file_name(ds_name), change_name_if_conflict=True)
     for subfolder in os.listdir(test_challenge_path):
         seq_value = subfolder[3:-2]
         seq = sly.Tag(seq_meta, value=seq_value)
