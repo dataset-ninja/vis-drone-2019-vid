@@ -1,3 +1,3 @@
-# VisDrone-VID dataset
+# VisDrone2019-VID Dataset
 
-VisDrone-VID is a dataset for object detection task.
+VisDrone2019-VID is a dataset for object detection and identification tasks.
