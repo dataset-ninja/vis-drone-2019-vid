@@ -113,7 +113,7 @@ ORGANIZATION_URL: Optional[Union[str, List[str]]] = [
 SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = {
     "occlusions": ["no occlusion", "partial occlusion", "heavy occlusion"],
     "truncations": ["no truncation", "partial truncation"],
-    "__POSTTEXT__": "Additionally, every image marked with ***sequence*** and ***target id*** tags, test images marked with ***challenge*** or ***dev*** tag",
+    "__POSTTEXT__": "Additionally, every image marked with ***sequence*** and ***target id*** tags",
 }
 TAGS: Optional[
     List[
